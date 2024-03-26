@@ -1,0 +1,10 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.ProyekSubmissionFundamental" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/github</item>
+        <item name="colorOnPrimary">@color/github_white</item>
+        <item name="colorSecondary">@color/gray_dark</item>
+    </style>
+
+    <style name="Theme.ProyekSubmissionFundamental" parent="Base.Theme.ProyekSubmissionFundamental" />
+</resources>
