@@ -50,25 +50,18 @@ class DetailUserActivity : AppCompatActivity() {
             checkIsUserFavorite(username)
         }
 
-        val photo: CircleImageView = findViewById(R.id.photo)
-        val name: TextView = findViewById(R.id.name)
-        val login: TextView = findViewById(R.id.login)
-        val followers: TextView = findViewById(R.id.followers)
-        val following: TextView = findViewById(R.id.following)
-        val progressBar: ProgressBar = findViewById(R.id.progressBar2)
-
         detailViewModel.isLoading.observe(this) { isLoading ->
-            progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+            binding.progressBar2.visibility = if (isLoading) View.VISIBLE else View.GONE
         }
 
         detailViewModel.user.observe(this) { user ->
             Glide.with(this)
                 .load(user.avatarUrl)
-                .into(photo)
-            name.text = user.name
-            login.text = user.login
-            followers.text = getString(R.string.followers_count, user.followers)
-            following.text = getString(R.string.following_count, user.following)
+                .into(binding.photo)
+            binding.name.text = user.name
+            binding.login.text = user.login
+            binding.followers.text = getString(R.string.followers_count, user.followers)
+            binding.following.text = getString(R.string.following_count, user.following)
         }
 
         val sectionsPagerAdapter = SectionsPagerAdapter(this, username.toString())
